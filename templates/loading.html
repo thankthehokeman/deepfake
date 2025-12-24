@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Analyzing Image...</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Analyzing image...</h1>
+    <p>File: <strong>{{ filename }}</strong></p>
+    <p>Estimated analysis time: about 5 seconds.</p>
+    <p>Please wait, you will be redirected to the result page automatically.</p>
+    <p>Note to self: make a proper loading page</p>
+
+    <script>
+        const waitSeconds = JSON.parse('{{ wait_seconds }}');
+
+        setTimeout(function () {
+            window.location.href = "{{ url_for('results') }}";
+        }, waitSeconds * 1000);
+        
+    </script>
+    
+    <script src="index.js"></script>
+  </body>
+</html>

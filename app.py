@@ -60,7 +60,7 @@ def get_front_page_url():
     elif front_page == "neutral":
         return url_for("greetings")
 
-DEEPFAKE_BASENAMES = ["image_2", "image_4", "image_5", "image_8"]
+DEEPFAKE_BASENAMES = ["image_2", "image_5", "image_7", "image_8", "image_10", "image_11", "image_16", "image_19"]
 GALLERY_IMAGES = ['image_1.png', 'image_2.png', 'image_3.png', 'image_4.png', 
                   'image_5.png', 'image_6.png', 'image_7.png', 'image_8.png', 
                   'image_9.png', 'image_10.png', 'image_11.png', 'image_12.png', 

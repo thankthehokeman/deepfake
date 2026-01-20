@@ -9,7 +9,7 @@ GALLERY_FOLDER = "static/gallery"
 UPLOAD_FOLDER = "static/uploads"
 
 app = Flask(__name__)
-app.secret_key='secret_key'
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", 'secret_key')
 app.config["GALLERY_FOLDER"] = GALLERY_FOLDER
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 

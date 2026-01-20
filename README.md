@@ -26,7 +26,9 @@ Use this link to access https://monolith-5e1d6ff7b5b6.herokuapp.com/
 There are 3 front pages to access:
 
 Neutral: https://monolith-5e1d6ff7b5b6.herokuapp.com/greetings
+
 Good: https://monolith-5e1d6ff7b5b6.herokuapp.com/hello
+
 Bad: https://monolith-5e1d6ff7b5b6.herokuapp.com/hi
 
 WARNING: You must access one of the front pages on first visit to set a front page for the rest of your visit!

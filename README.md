@@ -17,6 +17,20 @@ Below the box are 3 smaller boxes. The left most box has a preview of the upload
 Using cookies, when the user accesses a front page, they will be locked onto that front page until they clear their cookies.
 This manifests when trying to access loading or results when not permitted to and redirects them to the front page link. If they type in the base website link with no sub link, they are redirected.
 
+## Website
+
+We have a link now!
+
+Use this link to access https://monolith-5e1d6ff7b5b6.herokuapp.com/
+
+There are 3 front pages to access:
+
+Neutral: https://monolith-5e1d6ff7b5b6.herokuapp.com/greetings
+Good: https://monolith-5e1d6ff7b5b6.herokuapp.com/hello
+Bad: https://monolith-5e1d6ff7b5b6.herokuapp.com/hi
+
+WARNING: You must access one of the front pages on first visit to set a front page for the rest of your visit!
+
 ## Installation
 
 Create a virtual environment: [venv documentation](https://docs.python.org/3/library/venv.html)

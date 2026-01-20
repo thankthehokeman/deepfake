@@ -237,7 +237,7 @@ def results():
     sightlook = session.get("sightlook")
     frameguard = session.get("frameguard")
     forgescan = session.get("forgescan")
-    source = session.get("source", "upload")
+    source = session.get("gallery", "upload")
     if source == "gallery":
         img_url = url_for("gallery_file", filename=filename)
     else:
@@ -275,4 +275,4 @@ def results():
     )
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8000, debug=True)

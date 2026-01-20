@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monolith</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    {% block pico_css %}<!-- pico css for pages goes here -->{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shared.css') }}">
+    {% block css %}<!-- css for pages goes here -->{% endblock %}
+
+  </head>
+  <body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><h3><a class="logo" href="{{ front_page_url }}">Monolith</a></h3></li>
+            </ul>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Design</a></li>
+                <li><button class="secondary outline">Sign Up</button></li>
+                <li><button>Log In</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    {% block content %}
+    <!-- body content goes here -->
+    {% endblock %}
+
+    <footer class="foot-total">
+        <div class="container">
+            <div class="foot-structure">
+                <div class="foot-column">
+                    <h6>Products</h6>
+                    <ul>
+                        <li><a href="#">Image Moderation</a></li>
+                        <li><a href="#">Video Moderation</a></li>
+                        <li><a href="#">Text Moderation</a></li>
+                        <li><a href="#">AI Image Detection</a></li>
+                    </ul>
+                </div>
+                <div class="foot-column">
+                    <h6>Models</h6>
+                    <ul>
+                        <li><a href="#">Nudity Detection</a></li>
+                        <li><a href="#">Alcohol Detection</a></li>
+                        <li><a href="#">Drug Detection</a></li>
+                        <li><a href="#">Gore Detection</a></li>
+                        <li><a href="#">More...</a></li>
+                    </ul>
+                </div>
+                <div class="foot-column">
+                    <h6>API</h6>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>                
+                </div>
+                <div class="foot-column">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                    </ul>
+                </div>
+                <div class="foot-column">
+                    <h6>Use Cases</h6>
+                    <ul>
+                        <li><a href="#">Content Moderation</a></li>
+                        <li><a href="#">Knowledge Center</a></li>
+                        <li><a href="#">Marketplaces</a></li>
+                        <li><a href="#">Profile Image Moderation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="bottom">© Monolith</p>
+    </footer>
+  </body>
+</html>

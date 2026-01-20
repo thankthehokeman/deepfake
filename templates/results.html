@@ -1,21 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Results</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+{% extends "base.html" %}
 
-    <h1>Analysis result</h1>
-    <p>File analyzed: <strong>{{ filename }}</strong></p>
-    <p>Verdict: <strong>{{ status_text }}</strong></p>
-    <p>Note to self: improve this into actual results page</p>
-    <p><a href="{{ front_page_url }}">Go back to the front page</a></p>
+{% block pico_css %}<link rel="stylesheet" href="{{ url_for('static', filename=pico_css) }}">{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename=page_css) }}">{% endblock %}
 
-    <script src="index.js"></script>
+{% block content %}
+<main class="container results">
+    <header class="results__header">
+        <article class="results__summary">
 
-  </body>
-</html>
+            <div class="results__summary-row">
+                <h2 class="results__verdict">
+                    {% if verdict == "fake" %}Deepfake Detected{% else %}No Deepfake Detected{% endif %}
+                </h2>
+
+                <div class="results__overall-score">
+                    Estimated manipulation Chance: <strong>{{ overall_prc }}%</strong>
+                </div>
+            </div>
+
+        </article>
+    </header>
+
+    <section class="results__grid">
+        <article class="results__panel">
+            <h3>Preview</h3>
+
+            <figure class="results__figure">
+                <img src="{{ img_url }}">
+            </figure>
+        </article>
+
+        <article class="results__panel">
+            <h3>Model outputs</h3>
+
+            <ul class="models">
+                <li class="models__item">
+                    <div class="models__row">
+                        <span class="models__name">DeepCheck</span>
+                        <span class="models__pct">{{ deepcheck }}%</span>
+                    </div>
+                    <progress value="{{ deepcheck }}" max="100"></progress>
+                </li>
+
+                <li class="models__item">
+                    <div class="models__row">
+                        <span class="models__name">SightLook</span>
+                        <span class="models__pct">{{ sightlook }}%</span>
+                    </div>
+                    <progress value="{{ sightlook }}" max="100"></progress>
+                </li>
+
+                <li class="models__item">
+                    <div class="models__row">
+                        <span class="models__name">FrameGuard</span>
+                        <span class="models__pct">{{ frameguard }}%</span>
+                    </div>
+                    <progress value="{{ frameguard }}" max="100"></progress>
+                </li>
+
+                <li class="models__item">
+                    <div class="models__row">
+                        <span class="models__name">ForgeScan</span>
+                        <span class="models__pct">{{ forgescan }}%</span>
+                    </div>
+                <progress value="{{ forgescan }}" max="100"></progress>
+                </li>
+            </ul>
+
+        <p class="models__note">
+            Results can be inaccurate. Rely on your own judgment and verify with additional context.
+        </p>
+        </article>
+
+        <article class="results__panel">
+            <h3>Image info</h3>
+
+            <ul class="results__meta">
+                <li><strong>File:</strong> {{ filename }}</li>
+                <li><strong>Type:</strong> {{ img_mimetype }}</li>
+                <li><strong>Dimensions:</strong> {{ img_width }} × {{ img_height }}</li>
+                <li><strong>Size:</strong> {{ img_size }} KB</li>
+                <li><strong>Processed:</strong> {{ elapsed_ms }} ms</li>
+            </ul>
+        </article>
+    </section>
+</main>
+{% endblock %}

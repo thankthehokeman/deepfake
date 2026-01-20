@@ -1,0 +1,53 @@
+.hero {
+    background: url("/static/img/bosco-shots-71mBbj1l8ow-unsplash.jpg") center / cover no-repeat;
+    border-radius: 20px;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.hero h1,
+.hero p {
+    color: #fff;
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 1.5rem;
+    min-height: unset; 
+    backdrop-filter: blur(6px);
+}
+
+.feature__rule {
+    height: 3px;
+    width: 72px;
+    margin-top: 0.5rem;
+    background: currentColor;
+    opacity: 0.25;
+    border-radius: 999px;
+}
+
+.feature--panel {
+    background-color: rgb(176, 185, 208);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.foot-total li {
+    list-style: none;
+}
+
+footer p.bottom {
+    margin-top: 40px;
+    color: #949da2;
+    font-size: 14px;
+    text-align: center;
+}

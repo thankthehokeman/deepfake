@@ -26,7 +26,7 @@
         const waitSeconds = JSON.parse('{{ wait_seconds }}');
 
         setTimeout(function () {
-            window.location.href = "{{ url_for('results') }}";
+            window.location.replace("{{ url_for('results') }}");
         }, waitSeconds * 1000);       
     </script>
     <script src="{{url_for('static', filename='js/norightclick.js')}}"></script>

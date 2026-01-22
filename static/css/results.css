@@ -46,6 +46,10 @@
     padding: 1.25rem;
 }
 
+.results__return {
+    text-align: center;
+}
+
 .results__figure {
     margin-top: 1rem;
 }

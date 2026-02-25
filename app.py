@@ -25,7 +25,8 @@ def hello():
         front_page_url = get_front_page_url(), 
         page_css = "css/good.css", 
         pico_css = "css/pico.slate.min.css",
-        gallery_images=GALLERY_IMAGES
+        gallery_images = GALLERY_IMAGES,
+        gallery_selection = session.get("gallery_selection", [])
     )
 
 @app.route('/hi')
@@ -36,7 +37,8 @@ def hi():
         front_page_url = get_front_page_url(), 
         page_css = "css/bad.css", 
         pico_css = "css/pico.grey.min.css",
-        gallery_images=GALLERY_IMAGES
+        gallery_images = GALLERY_IMAGES,
+        gallery_selection = session.get("gallery_selection", [])
     )
 
 @app.route('/greetings')
@@ -47,7 +49,8 @@ def greetings():
         front_page_url = get_front_page_url(), 
         page_css = "css/neutral.css", 
         pico_css = "css/pico.grey.min.css",
-        gallery_images=GALLERY_IMAGES
+        gallery_images = GALLERY_IMAGES,
+        gallery_selection = session.get("gallery_selection", [])
     )
 
 def get_front_page_url():
@@ -132,6 +135,13 @@ def upload():
         session["img_width"] = int(width)
         session["img_height"] = int(height)
         session["img_ms"] = elapsed_ms
+
+        selected = session.get("gallery_selection", [])
+
+        if gallery_choice not in selected:
+            selected.append(gallery_choice)
+
+        session["gallery_selection"] = selected
             
         return redirect(url_for("loading"))
     else:

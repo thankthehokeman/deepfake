@@ -18,10 +18,11 @@
                         <header>
                             <h2>Upload Image</h2>
                         </header>
-
+                        
+                        <!--Upload and submit button disabled for experiment to prevent unauthorized image uploads-->
                         <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
-                            <input type="file" id="image" name="image" accept="image/*" required>
-                            <button type="submit">Analyze</button>
+                            <input type="file" id="image" name="image" accept="image/*" required disabled>
+                            <button type="submit" disabled>Analyze</button>
                         </form>
 
                         <button id="openGallery" class="secondary outline">
@@ -39,7 +40,7 @@
                                 <form method="post" action="{{ url_for('upload') }}" class="gallery-form">
                                     <div class="gallery-grid">
                                         {% for filename in gallery_images %}
-                                            <button type="submit" name="gallery_choice" value="{{ filename }}" class="gallery-button">
+                                            <button type="submit" name="gallery_choice" value="{{ filename }}" class="gallery-button" {% if filename in gallery_selection %}disabled{% endif %}>
                                                 <img src="{{ url_for('gallery_file', filename=filename) }}">
                                                 <small>{{ filename }}</small>
                                             </button>                       
